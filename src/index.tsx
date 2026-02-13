@@ -61,7 +61,7 @@ app.get('/', (c) => {
           </p>
           <div class="flex gap-4 justify-center items-center flex-wrap">
             <a
-              href="#"
+              href="https://pub-05940314903b40afadddd07dd49bbeb6.r2.dev/parallel-dev/parallel-dev.dmg"
               class="inline-block px-8 py-3.5 rounded-lg bg-gradient-to-r from-teal-400 to-violet-500 text-white font-semibold transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5"
             >
               Download for Mac
@@ -258,6 +258,25 @@ app.get('/', (c) => {
               });
             `
           }} />
+        </div>
+      </section>
+
+      {/* Screenshot Showcase */}
+      <section class="py-24">
+        <div class="max-w-[1100px] mx-auto px-5">
+          <h2 class="text-center text-3xl font-bold mb-6 bg-gradient-to-r from-teal-400 to-violet-500 bg-clip-text text-transparent">
+            See It in Action
+          </h2>
+          <p class="text-center text-slate-400 mb-12">
+            A glimpse of ParallelDev running multiple AI agents side by side.
+          </p>
+          <div class="rounded-xl overflow-hidden border border-[#1f2a44]">
+            <img
+              src="/screenshoot-001.png"
+              alt="ParallelDev Screenshot"
+              class="w-full h-auto block"
+            />
+          </div>
         </div>
       </section>
 
