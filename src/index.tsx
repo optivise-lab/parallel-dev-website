@@ -1,4 +1,5 @@
 import { Hono } from 'hono'
+import { raw } from 'hono/html'
 import { renderer } from './renderer'
 
 const app = new Hono()
@@ -240,24 +241,7 @@ app.get('/', (c) => {
           </div>
 
           {/* Tab switching script */}
-          <script dangerouslySetInnerHTML={{
-            __html: `
-              document.querySelectorAll('.tab-btn').forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                  var tab = this.getAttribute('data-tab');
-                  if (tab === 'windows') return;
-                  document.querySelectorAll('.tab-btn').forEach(function(b) {
-                    b.classList.remove('active');
-                    b.className = b.className.replace(/bg-gradient-to-r from-teal-400 to-violet-500 text-white/g, 'bg-slate-800 text-slate-400');
-                  });
-                  this.classList.add('active');
-                  this.className = this.className.replace(/bg-slate-800 text-slate-400/g, 'bg-gradient-to-r from-teal-400 to-violet-500 text-white');
-                  document.querySelectorAll('.tab-content').forEach(function(c) { c.classList.add('hidden'); });
-                  document.getElementById('tab-' + tab).classList.remove('hidden');
-                });
-              });
-            `
-          }} />
+          {raw(`<script>document.querySelectorAll('.tab-btn').forEach(function(btn){btn.addEventListener('click',function(){var tab=this.getAttribute('data-tab');if(tab==='windows')return;document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');b.className=b.className.replace(/bg-gradient-to-r from-teal-400 to-violet-500 text-white/g,'bg-slate-800 text-slate-400');});this.classList.add('active');this.className=this.className.replace(/bg-slate-800 text-slate-400/g,'bg-gradient-to-r from-teal-400 to-violet-500 text-white');document.querySelectorAll('.tab-content').forEach(function(c){c.classList.add('hidden');});document.getElementById('tab-'+tab).classList.remove('hidden');});});</script>`)}
         </div>
       </section>
 
